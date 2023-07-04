@@ -1,0 +1,20 @@
+.container {
+  background-color: var(--background);
+  height: 200vh;
+  text-align: center;
+}
+
+.content {
+  padding-bottom: calc((1520/3200) * 100%);
+}
+
+.one {
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 1350px;
+  height: 500px;
+  background-image: url(https://media.tiffany.com/is/image/tiffanydm/T-HP-FWMH-1Alt-Desktop?$tile$&wid=2992&fmt=webp);
+}
+
+.content2 {
+}
