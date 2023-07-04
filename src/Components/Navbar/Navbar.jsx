@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import Headroom from "react-headroom";
 import "./Navbar.css";
 import { RxHamburgerMenu } from "react-icons/rx";
