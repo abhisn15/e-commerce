@@ -1,20 +1,20 @@
 .container {
   background-color: var(--background);
-  height: 200vh;
-  text-align: center;
 }
 
 .content {
   position: relative;
-  top: 10px;
-  padding-bottom: calc((1520/3200) * 100%);
 }
 
 .one {
   background-repeat: no-repeat;
   background-size: cover;
-  width: 1350px;
-  height: 600px;
+  background-image: url(https://media.tiffany.com/is/image/tiffanydm/T-HP-FWMH-1Alt-Desktop?$tile$&wid=2992&fmt=webp);
+}
+
+.two {
+  background-repeat: no-repeat;
+  background-size: cover;
   background-image: url(https://media.tiffany.com/is/image/tiffanydm/T-HP-FWMH-1Alt-Desktop?$tile$&wid=2992&fmt=webp);
 }
 
@@ -32,8 +32,46 @@
 
 .shop:hover {
   color: #000000;
+  font-weight: 600;
 }
 
 .shop:hover:after {
   width: 142px;
+}
+
+.shop2:after {
+  content: "";
+  position: absolute;
+  z-index: 10;
+  background-color: aqua;
+  height: 2px;
+  width: 0;
+  left: 264px;
+  bottom: 0;
+  transition: 0.3s;
+}
+
+.shop2:hover {
+  color: #000000;
+  font-weight: 600;
+}
+
+.shop2:hover:after {
+  width: 142px;
+}
+
+.icon-favorite {
+  cursor: pointer;
+  background-size: cover;
+  width: 20px !important;
+  height: 20px !important;
+  background-image: url(https://media.tiffany.com/is/content/tiffanydm/Wishlist?$tile$&);
+}
+
+.icon-favorite:hover {
+  cursor: pointer;
+  background-size: cover;
+  width: 20px !important;
+  height: 20px !important;
+  background-image: url(//media.tiffany.com/is/content/tiffanydm/wishlisticon-empty?$tile$&);
 }

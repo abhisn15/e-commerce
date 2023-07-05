@@ -4,6 +4,13 @@
   --bg: #ffffff;
   --primary: #1445b7;
   --active: #3067e7;
+
+}
+
+html {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
 }
 
 body {
@@ -16,3 +23,9 @@ body {
 h1 {
   color: var(--text);
 }
+
+.react-multiple-carousel__arrow {
+  position: absolute;
+  z-index: 0;
+}
+

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Headroom from "react-headroom";
 import "./Navbar.css";
 import { RxHamburgerMenu } from "react-icons/rx";
@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isTextVisible, setIsTextVisible] = useState(false);
+  const [isDropdownSearch, setIsDropdownSearch] = useState(false);
   const [isDropdownPerhiasan, setIsDropdownPerhiasan] = useState(false);
   const [isDropdownHadiah, setIsDropdownHadiah] = useState(false);
   const [isDropdownCinta, setIsDropdownCinta] = useState(false);
@@ -14,6 +15,22 @@ const Navbar = () => {
   const [isDropdownParfum, setIsDropdownParfum] = useState(false);
   const [isDropdownPria, setIsDropdownPria] = useState(false);
   const [isDropdownCerita, setIsDropdownCerita] = useState(false);
+
+  const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsDropdownSearch(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   const handleMouseEnter1 = () => {
     setIsDropdownPerhiasan(true);
@@ -79,9 +96,8 @@ const Navbar = () => {
     setIsDropdownCerita(false);
   };
 
-  const toggleTextVisibility = () => {
-    setIsTextVisible(!isTextVisible);
-    console.log("Sukses!!!");
+  const handleToggle = () => {
+    setIsDropdownSearch(!isDropdownSearch);
   };
 
   return (
@@ -90,12 +106,10 @@ const Navbar = () => {
         <div className="left">
           <RxHamburgerMenu
             className="hamburger"
-            onClick={toggleTextVisibility}
           ></RxHamburgerMenu>
-          <button className="button">
+          <button className="button" onClick={handleToggle}>
             <div
               className="left-icon-search"
-              onClick={toggleTextVisibility}
             ></div>
           </button>
           <Link to="*">
@@ -118,13 +132,13 @@ const Navbar = () => {
         </div>
         <div className="right">
           <button className="button">
-            <div className="icon-account" onClick={toggleTextVisibility}></div>
+            <div className="icon-account"></div>
           </button>
-          <button className="right-button" onClick={toggleTextVisibility}>
-            <div className="icon-fav" onClick={toggleTextVisibility} />
+          <button className="right-button">
+            <div className="icon-fav" />
           </button>
-          <button className="right-button" onClick={toggleTextVisibility}>
-            <div className="icon-bag" onClick={toggleTextVisibility} />
+          <button className="right-button">
+            <div className="icon-bag" />
           </button>
         </div>
         <nav className="navbar">
@@ -318,6 +332,18 @@ const Navbar = () => {
             </div>
           </div>
         </nav>
+        <div ref={dropdownRef} className="dropdown-container">
+          {isDropdownSearch && (
+            <div className="absolute bg-white w-[4000px] left-0 top-24 z-0">
+              {/* Isi dropdown di sini */}
+              <ul>
+                <li>Option 1</li>
+                <li>Option 2</li>
+                <li>Option 3</li>
+              </ul>
+            </div>
+          )}
+        </div>
       </div>
     </Headroom>
   );
