@@ -1,5 +1,6 @@
 .header {
   display: flex;
+  z-index: 10;
   flex-wrap: wrap;
   padding-right: 28px;
   padding-left: 28px;
@@ -184,13 +185,13 @@ button {
 }
 
 .icon-account {
-  margin-left: 220px;
+  margin-left: 280px;
 }
 
 .icon-fav,
 .icon-bag {
   position: relative;
-  left: 280px;
+  left: 320px;
   margin-right: 40px;
 }
 
@@ -240,7 +241,7 @@ a {
   position: absolute;
   z-index: 10;
   background-color: aqua;
-  height: 3px;
+  height: 2px;
   width: 0;
   left: 198px;
   bottom: 14px;
@@ -260,7 +261,7 @@ a {
   position: absolute;
   z-index: 10;
   background-color: aqua;
-  height: 3px;
+  height: 2px;
   width: 0;
   left: 305px;
   bottom: 14px;
@@ -280,7 +281,7 @@ a {
   position: absolute;
   z-index: 10;
   background-color: aqua;
-  height: 3px;
+  height: 2px;
   width: 0;
   left: 395px;
   bottom: 14px;
@@ -300,7 +301,7 @@ a {
   position: absolute;
   z-index: 10;
   background-color: aqua;
-  height: 3px;
+  height: 2px;
   width: 0;
   left: 576px;
   bottom: 14px;
@@ -320,7 +321,7 @@ a {
   position: absolute;
   z-index: 10;
   background-color: aqua;
-  height: 3px;
+  height: 2px;
   width: 0;
   left: 746px;
   bottom: 14px;
@@ -340,7 +341,7 @@ a {
   position: absolute;
   z-index: 10;
   background-color: aqua;
-  height: 3px;
+  height: 2px;
   width: 0;
   left: 922px;
   bottom: 14px;
@@ -360,7 +361,7 @@ a {
   position: absolute;
   z-index: 10;
   background-color: aqua;
-  height: 3px;
+  height: 2px;
   width: 0;
   left: 1014px;
   bottom: 14px;
@@ -372,7 +373,7 @@ a {
 }
 
 .pria:hover:after {
-  width: 30px;
+  width: 36px;
 }
 
 .cerita:after {
@@ -380,7 +381,7 @@ a {
   position: absolute;
   z-index: 10;
   background-color: aqua;
-  height: 3px;
+  height: 2px;
   width: 0;
   left: 1086px;
   bottom: 14px;
@@ -419,7 +420,7 @@ a {
 .link {
   position: relative;
   margin: 0 auto;
-  top: 20px;
+  top: 30px;
   left: 180px;
   align-items: end;
 }

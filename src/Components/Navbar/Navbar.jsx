@@ -113,7 +113,7 @@ const Navbar = () => {
         </div>
         <div className="middle">
           <Link to="/">
-            <span className="judul">MarketPlace</span>
+            <span className="judul">Cloufee & Co</span>
           </Link>
         </div>
         <div className="right">
@@ -136,21 +136,21 @@ const Navbar = () => {
               <Link className="perhiasan">Perhiasan</Link>
               {isDropdownPerhiasan && (
                 <div className="dropdown-menu">
-                  <h3 className="text">Berbelanja Berdasarkan Kategori</h3>
+                  <h3 className="text mt-4">Berbelanja Berdasarkan Kategori</h3>
                   <Link to="/">
-                    <p className="link">Berbelanja Berdasarkan Kategori</p>
+                    <p className="link">Kalung & Lionting</p>
                   </Link>
                   <Link to="/">
-                    <p className="link">Berbelanja Berdasarkan Kategori</p>
+                    <p className="link">Kalung & Lionting</p>
                   </Link>
                   <Link to="/">
-                    <p className="link">Berbelanja Berdasarkan Kategori</p>
+                    <p className="link">Kalung & Lionting</p>
                   </Link>
                   <Link to="/">
-                    <p className="link">Berbelanja Berdasarkan Kategori</p>
+                    <p className="link">Kalung & Lionting</p>
                   </Link>
                   <Link to="/">
-                    <p className="link">Berbelanja Berdasarkan Kategori</p>
+                    <p className="link">Kalung & Lionting</p>
                   </Link>
                 </div>
               )}
@@ -162,21 +162,21 @@ const Navbar = () => {
               <Link className="hadiah">Hadiah</Link>
               {isDropdownHadiah && (
                 <div className="dropdown-menu">
-                  <h3 className="text">Hadiah untuk....</h3>
+                  <h3 className="text mt-4">Hadiah untuk....</h3>
                   <Link to="/">
-                    <p className="link">Hadiah untuk....</p>
+                    <p className="link">Kelulusan</p>
                   </Link>
                   <Link to="/">
-                    <p className="link">Hadiah untuk....</p>
+                    <p className="link">Kelulusan</p>
                   </Link>
                   <Link to="/">
-                    <p className="link">Hadiah untuk....</p>
+                    <p className="link">Kelulusan</p>
                   </Link>
                   <Link to="/">
-                    <p className="link">Hadiah untuk....</p>
+                    <p className="link">Kelulusan</p>
                   </Link>
                   <Link to="/">
-                    <p className="link">Hadiah untuk....</p>
+                    <p className="link">Kelulusan</p>
                   </Link>
                 </div>
               )}
@@ -188,21 +188,12 @@ const Navbar = () => {
               <Link className="cinta">Cinta & Keterlibatan</Link>
               {isDropdownCinta && (
                 <div className="dropdown-menu">
-                  <h3 className="text">Berbelanja Berdasarkan Kategori</h3>
+                  <h3 className="text mt-4">Pertunangan</h3>
                   <Link to="/">
-                    <p className="link">Berbelanja Berdasarkan Kategori</p>
+                    <p className="link">Cincin Pertunangan</p>
                   </Link>
                   <Link to="/">
-                    <p className="link">Berbelanja Berdasarkan Kategori</p>
-                  </Link>
-                  <Link to="/">
-                    <p className="link">Berbelanja Berdasarkan Kategori</p>
-                  </Link>
-                  <Link to="/">
-                    <p className="link">Berbelanja Berdasarkan Kategori</p>
-                  </Link>
-                  <Link to="/">
-                    <p className="link">Berbelanja Berdasarkan Kategori</p>
+                    <p className="link">Cincin Pertunangan Pria</p>
                   </Link>
                 </div>
               )}
@@ -214,21 +205,18 @@ const Navbar = () => {
               <Link className="jam">Jam Tangan Bagus</Link>
               {isDropdownJam && (
                 <div className="dropdown-menu">
-                  <h3 className="text">Berbelanja Berdasarkan Kategori</h3>
+                  <h3 className="text mt-4">Belanja Berdasarkan Kategori</h3>
                   <Link to="/">
-                    <p className="link">Berbelanja Berdasarkan Kategori</p>
+                    <p className="link">Jam Tangan Wanita</p>
                   </Link>
                   <Link to="/">
-                    <p className="link">Berbelanja Berdasarkan Kategori</p>
+                    <p className="link">Jam Tangan Pria</p>
                   </Link>
                   <Link to="/">
-                    <p className="link">Berbelanja Berdasarkan Kategori</p>
+                    <p className="link">Patek Philippe</p>
                   </Link>
                   <Link to="/">
-                    <p className="link">Berbelanja Berdasarkan Kategori</p>
-                  </Link>
-                  <Link to="/">
-                    <p className="link">Berbelanja Berdasarkan Kategori</p>
+                    <p className="link">Semua Jam Tangan Bagus</p>
                   </Link>
                 </div>
               )}
@@ -240,21 +228,18 @@ const Navbar = () => {
               <Link className="rumah">Rumah & Aksesoris</Link>
               {isDropdownRumah && (
                 <div className="dropdown-menu">
-                  <h3 className="text">Berbelanja Berdasarkan Kategori</h3>
+                  <h3 className="text mt-4">Untuk Meja</h3>
                   <Link to="/">
-                    <p className="link">Berbelanja Berdasarkan Kategori</p>
+                    <p className="link">Peralatan Makanan</p>
                   </Link>
                   <Link to="/">
-                    <p className="link">Berbelanja Berdasarkan Kategori</p>
+                    <p className="link">Gelas & Barang Bar</p>
                   </Link>
                   <Link to="/">
-                    <p className="link">Berbelanja Berdasarkan Kategori</p>
+                    <p className="link">Sendok Garpu & Nampan</p>
                   </Link>
                   <Link to="/">
-                    <p className="link">Berbelanja Berdasarkan Kategori</p>
-                  </Link>
-                  <Link to="/">
-                    <p className="link">Berbelanja Berdasarkan Kategori</p>
+                    <p className="link">Teh Kopi</p>
                   </Link>
                 </div>
               )}
@@ -266,21 +251,15 @@ const Navbar = () => {
               <Link className="parfum">Parfum</Link>
               {isDropdownParfum && (
                 <div className="dropdown-menu">
-                  <h3 className="text">Berbelanja Berdasarkan Kategori</h3>
+                  <h3 className="text mt-4">Belanja Berdasarkan Kategori</h3>
                   <Link to="/">
-                    <p className="link">Berbelanja Berdasarkan Kategori</p>
+                    <p className="link">Koleksi Tanda Tangan</p>
                   </Link>
                   <Link to="/">
-                    <p className="link">Berbelanja Berdasarkan Kategori</p>
+                    <p className="link">Cloufee & Cinta</p>
                   </Link>
                   <Link to="/">
-                    <p className="link">Berbelanja Berdasarkan Kategori</p>
-                  </Link>
-                  <Link to="/">
-                    <p className="link">Berbelanja Berdasarkan Kategori</p>
-                  </Link>
-                  <Link to="/">
-                    <p className="link">Berbelanja Berdasarkan Kategori</p>
+                    <p className="link">Cloufee & Co. Wild Iris Parfum</p>
                   </Link>
                 </div>
               )}
@@ -292,21 +271,21 @@ const Navbar = () => {
               <Link className="pria">Pria</Link>
               {isDropdownPria && (
                 <div className="dropdown-menu">
-                  <h3 className="text">Berbelanja Berdasarkan Kategori</h3>
+                  <h3 className="text mt-4">Berbelanja Berdasarkan Kategori</h3>
                   <Link to="/">
-                    <p className="link">Berbelanja Berdasarkan Kategori</p>
+                    <p className="link">Kalung & Liontin</p>
                   </Link>
                   <Link to="/">
-                    <p className="link">Berbelanja Berdasarkan Kategori</p>
+                    <p className="link">Gelang</p>
                   </Link>
                   <Link to="/">
-                    <p className="link">Berbelanja Berdasarkan Kategori</p>
+                    <p className="link">Dering</p>
                   </Link>
                   <Link to="/">
-                    <p className="link">Berbelanja Berdasarkan Kategori</p>
+                    <p className="link">Aksesoris</p>
                   </Link>
                   <Link to="/">
-                    <p className="link">Berbelanja Berdasarkan Kategori</p>
+                    <p className="link">Jam Tangan</p>
                   </Link>
                 </div>
               )}
@@ -318,21 +297,21 @@ const Navbar = () => {
               <Link className="cerita">Cerita</Link>
               {isDropdownCerita && (
                 <div className="dropdown-menu">
-                  <h3 className="text">Berbelanja Berdasarkan Kategori</h3>
+                  <h3 className="text mt-4">Sekarang Sedang Tren</h3>
                   <Link to="/">
-                    <p className="link">Berbelanja Berdasarkan Kategori</p>
+                    <p className="link">Sekarang Buka: The Landmark</p>
                   </Link>
                   <Link to="/">
-                    <p className="link">Berbelanja Berdasarkan Kategori</p>
+                    <p className="link">Ini adalah Cloufee T</p>
                   </Link>
                   <Link to="/">
-                    <p className="link">Berbelanja Berdasarkan Kategori</p>
+                    <p className="link">Ini adalah Pakaian Keras Cloufee</p>
                   </Link>
                   <Link to="/">
-                    <p className="link">Berbelanja Berdasarkan Kategori</p>
+                    <p className="link">Nike/Cloufee</p>
                   </Link>
                   <Link to="/">
-                    <p className="link">Berbelanja Berdasarkan Kategori</p>
+                    <p className="link">Temukan Kunci Cloufee</p>
                   </Link>
                 </div>
               )}

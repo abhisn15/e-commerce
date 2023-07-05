@@ -5,6 +5,8 @@
 }
 
 .content {
+  position: relative;
+  top: 10px;
   padding-bottom: calc((1520/3200) * 100%);
 }
 
@@ -12,9 +14,26 @@
   background-repeat: no-repeat;
   background-size: cover;
   width: 1350px;
-  height: 500px;
+  height: 600px;
   background-image: url(https://media.tiffany.com/is/image/tiffanydm/T-HP-FWMH-1Alt-Desktop?$tile$&wid=2992&fmt=webp);
 }
 
-.content2 {
+.shop:after {
+  content: "";
+  position: absolute;
+  z-index: 10;
+  background-color: aqua;
+  height: 2px;
+  width: 0;
+  left: 150px;
+  bottom: 0;
+  transition: 0.3s;
+}
+
+.shop:hover {
+  color: #000000;
+}
+
+.shop:hover:after {
+  width: 142px;
 }
