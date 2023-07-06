@@ -1,11 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import Headroom from "react-headroom";
 import "./Navbar.css";
-import { RxHamburgerMenu } from "react-icons/rx";
+import { RxHamburgerMenu, RxCross1 } from "react-icons/rx";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
-  const [isTextVisible, setIsTextVisible] = useState(false);
   const [isDropdownSearch, setIsDropdownSearch] = useState(false);
   const [isDropdownPerhiasan, setIsDropdownPerhiasan] = useState(false);
   const [isDropdownHadiah, setIsDropdownHadiah] = useState(false);
@@ -25,10 +24,10 @@ const Navbar = () => {
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
 
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
 
@@ -100,30 +99,32 @@ const Navbar = () => {
     setIsDropdownSearch(!isDropdownSearch);
   };
 
+  const handleToggleHide = () => {
+    setIsDropdownSearch(!isDropdownSearch);
+  };
+
   return (
     <Headroom>
       <div className="header">
         <div className="left">
-          <RxHamburgerMenu
-            className="hamburger"
-          ></RxHamburgerMenu>
+          <RxHamburgerMenu className="hamburger"></RxHamburgerMenu>
           <button className="button" onClick={handleToggle}>
-            <div
-              className="left-icon-search"
-            ></div>
+            <div className="left-icon-search"></div>
           </button>
-          <Link to="*">
+          <Link to="*" className="ml-[40px]">
             <button className="button">
               <div className="left-icon-map"></div>
             </button>
           </Link>
-          <button className="left-contact">
-            <Link to="/">
-              <div className="left-icon-contact">
-                <span className="text-contact">Contact Us</span>
-              </div>
-            </Link>
-          </button>
+          <div className="inline">
+            <button className="left-contact">
+              <Link to="/" className="ml-[40px]">
+                <div className="left-icon-contact">
+                  <span className="text-contact">Contact Us</span>
+                </div>
+              </Link>
+            </button>
+          </div>
         </div>
         <div className="middle">
           <Link to="/">
@@ -147,7 +148,7 @@ const Navbar = () => {
               onMouseEnter={handleMouseEnter1}
               onMouseLeave={handleMouseLeave1}
             >
-              <Link className="perhiasan">Perhiasan</Link>
+              <Link className="perhiasan ml-[40px]">Perhiasan</Link>
               {isDropdownPerhiasan && (
                 <div className="dropdown-menu">
                   <h3 className="text mt-4">Berbelanja Berdasarkan Kategori</h3>
@@ -173,7 +174,7 @@ const Navbar = () => {
               onMouseEnter={handleMouseEnter2}
               onMouseLeave={handleMouseLeave2}
             >
-              <Link className="hadiah">Hadiah</Link>
+              <Link className="hadiah ml-[40px]">Hadiah</Link>
               {isDropdownHadiah && (
                 <div className="dropdown-menu">
                   <h3 className="text mt-4">Hadiah untuk....</h3>
@@ -199,7 +200,7 @@ const Navbar = () => {
               onMouseEnter={handleMouseEnter3}
               onMouseLeave={handleMouseLeave3}
             >
-              <Link className="cinta">Cinta & Keterlibatan</Link>
+              <Link className="cinta ml-[40px]">Cinta & Keterlibatan</Link>
               {isDropdownCinta && (
                 <div className="dropdown-menu">
                   <h3 className="text mt-4">Pertunangan</h3>
@@ -216,7 +217,7 @@ const Navbar = () => {
               onMouseEnter={handleMouseEnter4}
               onMouseLeave={handleMouseLeave4}
             >
-              <Link className="jam">Jam Tangan Bagus</Link>
+              <Link className="jam ml-[40px]">Jam Tangan Bagus</Link>
               {isDropdownJam && (
                 <div className="dropdown-menu">
                   <h3 className="text mt-4">Belanja Berdasarkan Kategori</h3>
@@ -239,7 +240,7 @@ const Navbar = () => {
               onMouseEnter={handleMouseEnter5}
               onMouseLeave={handleMouseLeave5}
             >
-              <Link className="rumah">Rumah & Aksesoris</Link>
+              <Link className="rumah ml-[40px]">Rumah & Aksesoris</Link>
               {isDropdownRumah && (
                 <div className="dropdown-menu">
                   <h3 className="text mt-4">Untuk Meja</h3>
@@ -262,7 +263,7 @@ const Navbar = () => {
               onMouseEnter={handleMouseEnter6}
               onMouseLeave={handleMouseLeave6}
             >
-              <Link className="parfum">Parfum</Link>
+              <Link className="parfum ml-[40px]">Parfum</Link>
               {isDropdownParfum && (
                 <div className="dropdown-menu">
                   <h3 className="text mt-4">Belanja Berdasarkan Kategori</h3>
@@ -282,7 +283,7 @@ const Navbar = () => {
               onMouseEnter={handleMouseEnter7}
               onMouseLeave={handleMouseLeave7}
             >
-              <Link className="pria">Pria</Link>
+              <Link className="pria ml-[40px]">Pria</Link>
               {isDropdownPria && (
                 <div className="dropdown-menu">
                   <h3 className="text mt-4">Berbelanja Berdasarkan Kategori</h3>
@@ -308,7 +309,7 @@ const Navbar = () => {
               onMouseEnter={handleMouseEnter8}
               onMouseLeave={handleMouseLeave8}
             >
-              <Link className="cerita">Cerita</Link>
+              <Link className="cerita ml-[40px]">Cerita</Link>
               {isDropdownCerita && (
                 <div className="dropdown-menu">
                   <h3 className="text mt-4">Sekarang Sedang Tren</h3>
@@ -334,13 +335,20 @@ const Navbar = () => {
         </nav>
         <div ref={dropdownRef} className="dropdown-container">
           {isDropdownSearch && (
-            <div className="absolute bg-white w-[4000px] left-0 top-24 z-0">
+            <div className="absolute flex flex-col bg-white w-[4000px] left-0 top-24 z-0">
               {/* Isi dropdown di sini */}
-              <ul>
-                <li>Option 1</li>
-                <li>Option 2</li>
-                <li>Option 3</li>
-              </ul>
+              <div className="flex flex-col items-end mt-10 w-[1310px]">
+                <RxCross1
+                  className="cursor-pointer text-3xl"
+                  onClick={handleToggleHide}
+                />
+              </div>
+              <div className=""></div>
+              <div>
+                <form>
+                  <input placeholder="" className="border border-black"></input>
+                </form>
+              </div>
             </div>
           )}
         </div>

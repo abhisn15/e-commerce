@@ -1,24 +1,3 @@
-export const responsive = {
-  superLargeDesktop: {
-    // the naming can be any, depends on you.
-    breakpoint: { max: 4000, min: 1024 },
-    items: 4,
-    slidesToSlide: 4,
-  },
-  desktop: {
-    breakpoint: { max: 1024, min: 800 },
-    items: 4,
-  },
-  tablet: {
-    breakpoint: { max: 800, min: 464 },
-    items: 2,
-  },
-  mobile: {
-    breakpoint: { max: 464, min: 0 },
-    items: 1,
-  },
-};
-
 export const productData = [
   {
     id: 1,
@@ -81,3 +60,20 @@ export const productData = [
       "https://media.tiffany.com/is/image/Tiffany/EcomBrowseM/tiffany-tdiamond-and-pink-opal-circle-pendant-64027115_1054844_ED.jpg?&defaultImage=NoImageAvailableInternal&&defaultImage=NoImageAvailableInternal&fmt=webp",
   },
 ];
+
+export const productPopular = [
+  {
+    id: 1,
+    imageurl: 'https://media.tiffany.com/is/image/tiffanydm/2023-Eyewear_HP-50-50-1-Desktop-1?$tile$&wid=1088&hei=1360&fmt=webp',
+    title: 'Most Popular Jewelry',
+    shop: '/desain-perhiasan',
+    text: 'Shop Now >',
+  },
+  {
+    id: 2,
+    imageurl: 'https://media.tiffany.com/is/image/tiffanydm/HA-HP_50-50-2-Desktop?$tile$&wid=1088&hei=1360&fmt=webp',
+    title: "Women's Accessories",
+    shop: '/desain-perhiasan',
+    text: 'Shop Now >',
+  },
+]
