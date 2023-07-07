@@ -23,8 +23,8 @@ const Home = () => {
   // ));
 
   const settings = {
-    autoplay: true,
-    infinite: true,
+    autoplay: false,
+    infinite: false,
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 4,
