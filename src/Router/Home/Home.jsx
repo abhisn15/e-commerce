@@ -1,10 +1,73 @@
 import { Link } from "react-router-dom";
-import "./Data";
 import "./Home.css";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { productData, productPopular } from "./Data";
+import { ArrowBackIos, ArrowForwardIos } from '@material-ui/icons';
+import { useState } from 'react';
+import { useEffect } from 'react';
+
+let slidesToShow = 4;
+const PreviousBtn = (props) => {
+  const { className, onClick, currentSlide } = props;
+  return (
+    <>
+      {currentSlide !== 0 && (
+        <div className={className} onClick={onClick}>
+          <div>
+            <ArrowBackIos className="ml-[40px] text-black" />
+          </div>
+        </div>
+      )}
+    </>
+  );
+};
+const NextBtn = (props) => {
+  const { className, onClick, slideCount, currentSlide } = props;
+  return (
+    <>
+      {currentSlide !== slideCount - slidesToShow && (
+        <div className={className} onClick={onClick}>
+          <ArrowForwardIos className="right-0 text-black" />
+        </div>
+      )}
+    </>
+  );
+};
+
+const carouselProperties = {
+  nextArrow: <NextBtn />,
+  prevArrow: <PreviousBtn />,
+  slidesToShow: slidesToShow,
+  slidesToScroll: 4,
+  infinite: false,
+  // slidesToScroll={3}
+  responsive: [
+    {
+      breakpoint: 426,
+      settings: {
+        slidesToShow: 2,
+        centerMode: false,
+      },
+    },
+    {
+      breakpoint: 769,
+      settings: {
+        slidesToShow: 3,
+        centerMode: false,
+      },
+    },
+    {
+      breakpoint: 1025,
+      settings: {
+        slidesToShow: 4,
+        centerMode: false,
+        slidesToScroll: 4,
+      },
+    },
+  ],
+};
 
 const Home = () => {
   // const products = productData.map((item) => (
@@ -22,13 +85,25 @@ const Home = () => {
   //   </div>
   // ));
 
-  const settings = {
-    autoplay: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 4,
+  const [width, setWidth] = useState(window.innerWidth);
+  const updateWidth = () => {
+    setWidth(window.innerWidth);
   };
+
+  useEffect(() => {
+    window.addEventListener('resize', updateWidth);
+    return () => window.removeEventListener('resize', updateWidth);
+  }, []);
+
+  if (width <= 426) {
+    slidesToShow = 2;
+  } else if (width > 426 && width <= 769) {
+    slidesToShow = 3;
+  } else if (width > 769 && width <= 1025) {
+    slidesToShow = 4;
+  } else {
+    slidesToShow = 4;
+  }
 
   return (
     <div className="section">
@@ -42,7 +117,7 @@ const Home = () => {
               Our House ambassadors make Cloufee T their own in our latest
               campaign.
             </p>
-            <div className="shop2 mt-6 mr-12">
+            <div className="shop2 ml-[40px] mt-6 mr-12">
               <Link
                 to="/desain-perhiasan"
                 className="bg-white px-10 pt-3 pb-4 border border-slate-900"
@@ -84,11 +159,16 @@ const Home = () => {
             {products}
           </Carousel>
         </div> */}
-        <Slider className="mb-10" {...settings}>
+        <Slider className="2xl:ml-24 mb-10" {...carouselProperties}>
           {productData.map((items) => (
-            <div key={items.id} className="p-4">
+            <div key={items.id} className="">
               <Link to="/">
-                <img src={items.imageurl}></img>
+                <img style={{
+                  width: 'auto',
+                  height: '370px',
+                  objectFit: 'contain',
+                  marginBottom: '10px',
+                }} src={items.imageurl}></img>
               </Link>
             </div>
           ))}
@@ -111,26 +191,21 @@ const Home = () => {
         </div>
         <div className="card-popular relative flex justify-center z-0 md:gap-24">
           {productPopular.map((item) => (
-            <>
-              <div className="mb-20">
-                <Link to="/desain-perhiasan" className="">
-                  <img className="md:w-[500px]" src={item.imageurl}></img>
-                </Link>
-                <span className="flex justify-center mt-4 md:text-2xl text-black font-semibold">
-                  {item.title}
-                </span>
-                <Link
-                  to={item.shop}
-                  className="shop-now flex justify-center ml-0 mt-2"
-                >
-                  <span className=" text-black font-normal">{item.text}</span>
-                </Link>
-              </div>
-            </>
+            <div className="mb-20" key={item.id}>
+              <Link to="/desain-perhiasan" className="">
+                <img className="md:w-[500px]" src={item.imageurl} alt={item.title} />
+              </Link>
+              <span className="flex justify-center mt-4 md:text-2xl text-black font-semibold">
+                {item.title}
+              </span>
+              <Link to={item.shop} className="shop-now flex justify-center ml-0 mt-2">
+                <span className="text-black font-normal">{item.text}</span>
+              </Link>
+            </div>
           ))}
         </div>
-      </div>
-    </div>
+      </div >
+    </div >
   );
 };
 

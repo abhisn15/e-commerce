@@ -4,7 +4,6 @@
   --bg: #ffffff;
   --primary: #1445b7;
   --active: #3067e7;
-
 }
 
 body {
@@ -18,11 +17,23 @@ h1 {
   color: var(--text);
 }
 
-.react-multiple-carousel__arrow {
-  position: absolute;
-  z-index: 0;
+.slick-next {
+  margin-right: 120px;
 }
 
-.react-multi-carousel-item{
-  margin-right: 0px;
+.slick-next:before {
+  content: "";
+}
+
+.slick-prev:before,
+.slick-next:before {
+  content: "";
+}
+
+.slick-prev {
+  z-index: 1;
+}
+
+.headroom {
+  z-index: 2 !important;
 }
