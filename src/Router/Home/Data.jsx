@@ -77,3 +77,4 @@ export const productPopular = [
     text: 'Shop Now >',
   },
 ]
+
