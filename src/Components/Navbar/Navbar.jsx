@@ -3,6 +3,7 @@ import Headroom from "react-headroom";
 import "./Navbar.css";
 import { RxHamburgerMenu, RxCross1 } from "react-icons/rx";
 import { Link } from "react-router-dom";
+import { gsap } from "gsap";
 
 const Navbar = () => {
   const [isDropdownSearch, setIsDropdownSearch] = useState(false);
@@ -103,6 +104,18 @@ const Navbar = () => {
     setIsDropdownSearch(!isDropdownSearch);
   };
 
+  useEffect(() => {
+    const ts = gsap.timeline({ defaults: { duration: 1 } });
+
+    ts.from(".navbar-content", { opacity: 0, x: -20 });
+  }, []);
+
+  useEffect(() => {
+    const hdr = gsap.timeline({ defaults: { duration: 1 } });
+
+    hdr.from(".judul,.left-icon-search,.left-icon-map,.left-contact,.icon-account,.icon-fav,.icon-bag", { opacity: 0, x: 0 });
+  }, []);
+
   return (
     <Headroom>
       <div className="header">
@@ -131,20 +144,15 @@ const Navbar = () => {
             <span className="judul">Cloufee & Co</span>
           </Link>
         </div>
-        <div className="right">
-          <button className="button">
-            <div className="icon-account"></div>
-          </button>
-          <button className="right-button">
-            <div className="icon-fav" />
-          </button>
-          <button className="right-button">
-            <div className="icon-bag" />
-          </button>
+        <div className="right flex gap-10 justify-end">
+          <div className="icon-account"></div>
+          <div className="icon-fav" />
+          <div className="icon-bag" />
         </div>
         <nav className="navbar">
           <div className="navbar-content">
             <div
+              className="perhiasann"
               onMouseEnter={handleMouseEnter1}
               onMouseLeave={handleMouseLeave1}
             >

@@ -1,13 +1,16 @@
 import { Link } from "react-router-dom";
-import "./Home.css";
 import Slider from "react-slick";
+import { ArrowBackIos, ArrowForwardIos } from "@material-ui/icons";
+import { useState, useEffect } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { productData, productPopular } from "./Data";
-import { ArrowBackIos, ArrowForwardIos } from '@material-ui/icons';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { productData, productPopular, shopCategory } from "./Data";
+import "./Home.css";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/all";
 
+import { easeInOut } from "framer-motion";
+import { to } from "react-spring";
 let slidesToShow = 4;
 const PreviousBtn = (props) => {
   const { className, onClick, currentSlide } = props;
@@ -29,7 +32,7 @@ const NextBtn = (props) => {
     <>
       {currentSlide !== slideCount - slidesToShow && (
         <div className={className} onClick={onClick}>
-          <ArrowForwardIos className="right-0 text-black" />
+          <ArrowForwardIos className="!ml-20 text-black" />
         </div>
       )}
     </>
@@ -84,18 +87,19 @@ const Home = () => {
   //     </Link>
   //   </div>
   // ));
-
-  const settings = {
-    autoplay: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 4,
-  };
+  const [width, setWidth] = useState(window.innerWidth);
+  gsap.registerPlugin(ScrollTrigger);
 
   useEffect(() => {
-    window.addEventListener('resize', updateWidth);
-    return () => window.removeEventListener('resize', updateWidth);
+    const handleResize = () => {
+      setWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   if (width <= 426) {
@@ -108,6 +112,41 @@ const Home = () => {
     slidesToShow = 4;
   }
 
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".slick-slider",
+      markers: false,
+      start: "top 100%",
+      end: "top 30%",
+      scrub: 1,
+    },
+  });
+
+  const ts = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".card-popular",
+      markers: false,
+      start: "top 100%",
+      end: "top 30%",
+      scrub: 1,
+      ease: easeInOut,
+    },
+  });
+
+  tl.to(".slick-slider", { y: 60, duration: 1})
+  .to(".slick-slider", { y: 60, duration: 1})
+    .to(".slick-slider", { y: 0, duration: 1 });
+
+  ts.to(".card-popular", { y: 80, duration: 1 })
+  .to(".card-popular", { y: 80, duration: 1 })
+    .to(".card-popular", { y: 0, duration: 1});
+
+    useEffect(() => {
+      const hdr = gsap.timeline({ defaults: { duration: 1 } });
+  
+      hdr.from(".intro,.p,.shop,.shop2", { opacity: 0, x: -20 });
+    }, []);
+
   return (
     <div className="section">
       <div className="content pb-2">
@@ -116,7 +155,7 @@ const Home = () => {
             <h1 className="intro font-medium text-slate-950 text-2xl">
               This Is Cloufee T
             </h1>
-            <p className="mx-8 mt-2 text-center text-md">
+            <p className="p mx-8 mt-2 text-center text-md">
               Our House ambassadors make Cloufee T their own in our latest
               campaign.
             </p>
@@ -130,7 +169,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div className="one md:w-[1350px] h-[653px] 2xl:hidden">
+        <div className="one lg:h-[640px] md:w-[1350px] h-[653px] 2xl:hidden">
           <div className="relative flex flex-col items-center top-60 w-1/3">
             <h1 className="intro font-medium text-slate-950 text-2xl">
               This Is Cloufee T
@@ -162,32 +201,31 @@ const Home = () => {
             {products}
           </Carousel>
         </div> */}
-        <Slider className="2xl:ml-24 mb-10" {...carouselProperties}>
+        <Slider className="md:ml-16 md:mr-10 2xl:ml-24" {...carouselProperties}>
           {productData.map((items) => (
             <div key={items.id} className="">
               <Link to="/">
-                <img style={{
-                  width: 'auto',
-                  height: '370px',
-                  objectFit: 'contain',
-                  marginBottom: '10px',
-                }} src={items.imageurl}></img>
+                <img
+                  className="w-auto h-[370px] 2xl:h-[432px] object-contain mb-10"
+                  src={items.imageurl}
+                ></img>
               </Link>
+              <div className="icon-favorite absolute top-0 2xl:mt-8 2xl:ml-[390px]"></div>
             </div>
           ))}
         </Slider>
         <div className="relative z-0 grid place-content-center mb-20 2xl:hidden">
           <Link
             to="/desa in-perhiasan"
-            className="shopn mr-9 bg-white px-4 py-3 border border-slate-900"
+            className="shopn bg-white px-4 py-3 border border-slate-900"
           >
             <span className="font-medium text-black">Shop Now</span>
           </Link>
         </div>
-        <div className="relative z-0 grid place-content-center mb-20 max-[1540px]:hidden">
+        <div className="relative z-0 grid place-content-center mb-8 max-[1540px]:hidden">
           <Link
             to="/desain-perhiasan"
-            className="shopn2 mr-44 bg-white px-4 py-3 border border-slate-900 2xl:ml-[400px]"
+            className="shopn2 bg-white px-7 py-3 border border-slate-900"
           >
             <span className="font-medium text-black">Shop Now</span>
           </Link>
@@ -196,19 +234,51 @@ const Home = () => {
           {productPopular.map((item) => (
             <div className="mb-20" key={item.id}>
               <Link to="/desain-perhiasan" className="">
-                <img className="md:w-[500px]" src={item.imageurl} alt={item.title} />
+                <img
+                  className="md:w-[500px]"
+                  src={item.imageurl}
+                  alt={item.title}
+                />
               </Link>
               <span className="flex justify-center mt-4 md:text-2xl text-black font-semibold">
                 {item.title}
               </span>
-              <Link to={item.shop} className="shop-now flex justify-center ml-0 mt-2">
+              <Link
+                to={item.shop}
+                className="shop-now flex justify-center ml-0 mt-2"
+              >
                 <span className="text-black font-normal">{item.text}</span>
               </Link>
             </div>
           ))}
         </div>
-      </div >
-    </div >
+      </div>
+      <div className="content3">
+        <h1 className="rawr text-black text-center font-medium text-2xl">
+          Shop by Category
+        </h1>
+        <h3 className="text-black text-center mb-8">
+          Brilliant design and unparalleled craftsmanship.
+        </h3>
+        <div className="shop-category relative flex gap-4 justify-center mb-20">
+          {shopCategory.map((items) => (
+            <div className="" key={items.id}>
+              <Link to="/desain-perhiasan">
+                <img className="md:w-48 2xl:w-64" src={items.imageurl}></img>
+              </Link>
+              <Link className="flex justify-center">
+                <span className="category-shop">{items.text1}</span>
+                <span className="category-shop2">{items.text2}</span>
+                <span className="category-shop3">{items.text3}</span>
+                <span className="category-shop4">{items.text4}</span>
+                <span className="category-shop5">{items.text5}</span>
+                <span className="category-shop6">{items.text6}</span>
+              </Link>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
   );
 };
 

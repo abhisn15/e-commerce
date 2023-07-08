@@ -78,3 +78,42 @@ export const productPopular = [
   },
 ]
 
+export const shopCategory = [
+  {
+    id: 1,
+    imageurl: 'https://media.tiffany.com/is/image/tiffanydm/Necklace_op3?$tile$&&fmt=webp',
+    shop: '/desain-perhiasan',
+    text1: 'Necklaces & Pendants',
+  },
+  {
+    id: 2,
+    imageurl: 'https://media.tiffany.com/is/image/tiffanydm/Rings?$tile$&&fmt=webp',
+    shop: '/desain-perhiasan',
+    text2: 'Rings',
+  },
+  {
+    id: 3,
+    imageurl: 'https://media.tiffany.com/is/image/tiffanydm/Earrings?$tile$&&fmt=webp',
+    shop: '/desain-perhiasan',
+    text3: 'Earrings',
+  },
+  {
+    id: 4,
+    imageurl: 'https://media.tiffany.com/is/image/tiffanydm/Bracelet?$tile$&&fmt=webp',
+    shop: '/desain-perhiasan',
+    text4: 'Bracelets',
+  },
+  {
+    id: 5,
+    imageurl: 'https://media.tiffany.com/is/image/tiffanydm/EngagementRings?$tile$&&fmt=webp',
+    shop: '/desain-perhiasan',
+    text5: 'Engagement Rings',
+  },
+  {
+    id: 6,
+    imageurl: 'https://media.tiffany.com/is/image/tiffanydm/HomeDecor?$tile$&&fmt=webp',
+    shop: '/desain-perhiasan',
+    text6: 'Home',
+  },
+]
+

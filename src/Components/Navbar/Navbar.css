@@ -183,17 +183,6 @@ button {
   background-image: url(//media.tiffany.com/is/content/tiffanydm/shoppingbag-empty?$tile$&);
 }
 
-.icon-account {
-  margin-left: 280px;
-}
-
-.icon-fav,
-.icon-bag {
-  position: relative;
-  left: 320px;
-  margin-right: 40px;
-}
-
 .navbar {
   display: flex;
   position: relative;
@@ -222,11 +211,9 @@ button {
   display: flex;
   margin: 0;
   padding: 0;
-}
-
-.navbar ul {
   margin-right: 10px;
 }
+
 
 a {
   z-index: 10;
