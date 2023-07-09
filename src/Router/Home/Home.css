@@ -181,7 +181,6 @@
   width: 46px;
 }
 
-
 .category-shop3:after {
   content: "";
   position: absolute;
@@ -268,6 +267,136 @@
   }
 }
 
+@media only screen and (min-width: 1400px) {
+  .shop:after {
+    left: 170px;
+  }
+
+  .shopn:after {
+    left: 690px;
+  }
+
+  .category-shop:after {
+    content: "";
+    position: absolute;
+    z-index: 10;
+    background-color: aqua;
+    height: 2px;
+    width: 0;
+    bottom: 0px;
+    left: 124px;
+    transition: 0.6s;
+  }
+
+  .category-shop:hover {
+    color: #000000;
+  }
+
+  .category-shop:hover:after {
+    width: 165px;
+  }
+
+  .category-shop2:after {
+    content: "";
+    position: absolute;
+    z-index: 10;
+    background-color: aqua;
+    height: 2px;
+    width: 0;
+    bottom: 0px;
+    left: 394px;
+    transition: 0.6s;
+  }
+
+  .category-shop2:hover {
+    color: #000000;
+  }
+
+  .category-shop2:hover:after {
+    width: 46px;
+  }
+
+  .category-shop3:after {
+    content: "";
+    position: absolute;
+    z-index: 10;
+    background-color: aqua;
+    height: 2px;
+    width: 0;
+    bottom: 0px;
+    left: 595px;
+    transition: 0.6s;
+  }
+
+  .category-shop3:hover {
+    color: #000000;
+  }
+
+  .category-shop3:hover:after {
+    width: 60px;
+  }
+
+  .category-shop4:after {
+    content: "";
+    position: absolute;
+    z-index: 10;
+    background-color: aqua;
+    height: 2px;
+    width: 0;
+    bottom: 0px;
+    left: 795px;
+    transition: 0.6s;
+  }
+
+  .category-shop4:hover {
+    color: #000000;
+  }
+
+  .category-shop4:hover:after {
+    width: 69px;
+  }
+
+  .category-shop5:after {
+    content: "";
+    position: absolute;
+    z-index: 10;
+    background-color: aqua;
+    height: 2px;
+    width: 0;
+    bottom: 0px;
+    left: 974px;
+    transition: 0.6s;
+  }
+
+  .category-shop5:hover {
+    color: #000000;
+  }
+
+  .category-shop5:hover:after {
+    width: 132px;
+  }
+
+  .category-shop6:after {
+    content: "";
+    position: absolute;
+    z-index: 10;
+    background-color: aqua;
+    height: 2px;
+    width: 0;
+    bottom: 0px;
+    left: 1224px;
+    transition: 0.6s;
+  }
+
+  .category-shop6:hover {
+    color: #000000;
+  }
+
+  .category-shop6:hover:after {
+    width: 46px;
+  }
+}
+
 @media only screen and (min-width: 1900px) {
   .category-shop:after {
     content: "";
@@ -280,15 +409,15 @@
     left: 194px;
     transition: 0.6s;
   }
-  
+
   .category-shop:hover {
     color: #000000;
   }
-  
+
   .category-shop:hover:after {
     width: 155px;
   }
-  
+
   .category-shop2:after {
     content: "";
     position: absolute;
@@ -300,16 +429,15 @@
     left: 520px;
     transition: 0.6s;
   }
-  
+
   .category-shop2:hover {
     color: #000000;
   }
-  
+
   .category-shop2:hover:after {
     width: 46px;
   }
-  
-  
+
   .category-shop3:after {
     content: "";
     position: absolute;
@@ -321,15 +449,15 @@
     left: 785px;
     transition: 0.6s;
   }
-  
+
   .category-shop3:hover {
     color: #000000;
   }
-  
+
   .category-shop3:hover:after {
     width: 60px;
   }
-  
+
   .category-shop4:after {
     content: "";
     position: absolute;
@@ -341,15 +469,15 @@
     left: 1055px;
     transition: 0.6s;
   }
-  
+
   .category-shop4:hover {
     color: #000000;
   }
-  
+
   .category-shop4:hover:after {
     width: 67px;
   }
-  
+
   .category-shop5:after {
     content: "";
     position: absolute;
@@ -361,15 +489,15 @@
     left: 1294px;
     transition: 0.6s;
   }
-  
+
   .category-shop5:hover {
     color: #000000;
   }
-  
+
   .category-shop5:hover:after {
     width: 132px;
   }
-  
+
   .category-shop6:after {
     content: "";
     position: absolute;
@@ -381,14 +509,15 @@
     left: 1609px;
     transition: 0.6s;
   }
-  
+
   .category-shop6:hover {
     color: #000000;
   }
-  
+
   .category-shop6:hover:after {
     width: 46px;
   }
+
   .slick-list {
     position: relative !important;
     right: 35px !important;

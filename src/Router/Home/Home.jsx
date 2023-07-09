@@ -10,7 +10,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 
 import { easeInOut } from "framer-motion";
-import { to } from "react-spring";
+
 let slidesToShow = 4;
 const PreviousBtn = (props) => {
   const { className, onClick, currentSlide } = props;
@@ -112,40 +112,40 @@ const Home = () => {
     slidesToShow = 4;
   }
 
-  const tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".slick-slider",
-      markers: false,
-      start: "top 100%",
-      end: "top 30%",
-      scrub: 1,
-    },
-  });
+  useEffect(() => {
+    const hdr = gsap.timeline({ defaults: { duration: 1 } });
 
-  const ts = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".card-popular",
-      markers: false,
-      start: "top 100%",
-      end: "top 30%",
-      scrub: 1,
-      ease: easeInOut,
-    },
-  });
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".slick-slider",
+        markers: false,
+        start: "top 100%",
+        end: "top 30%",
+        scrub: 1,
+      },
+    });
 
-  tl.to(".slick-slider", { y: 60, duration: 1})
-  .to(".slick-slider", { y: 60, duration: 1})
-    .to(".slick-slider", { y: 0, duration: 1 });
+    const ts = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".card-popular",
+        markers: false,
+        start: "top 100%",
+        end: "top 30%",
+        scrub: 1,
+        ease: easeInOut,
+      },
+    });
 
-  ts.to(".card-popular", { y: 80, duration: 1 })
-  .to(".card-popular", { y: 80, duration: 1 })
-    .to(".card-popular", { y: 0, duration: 1});
+    hdr.from(".intro,.p,.shop,.shop2", { opacity: 0, x: -20 });
 
-    useEffect(() => {
-      const hdr = gsap.timeline({ defaults: { duration: 1 } });
-  
-      hdr.from(".intro,.p,.shop,.shop2", { opacity: 0, x: -20 });
-    }, []);
+    tl.to(".slick-slider", { y: 60, duration: 1 })
+      .to(".slick-slider", { y: 30, duration: 1 })
+      .to(".slick-slider", { y: 0, duration: 1 });
+
+    ts.to(".card-popular", { y: 80, duration: 1 })
+      .to(".card-popular", { y: 40, duration: 1 })
+      .to(".card-popular", { y: 0, duration: 1 });
+  }, []);
 
   return (
     <div className="section">
@@ -169,7 +169,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div className="one lg:h-[640px] md:w-[1350px] h-[653px] 2xl:hidden">
+        <div className="one min-[1400px]:w-[1460px] min-[1400px]:h-[690px] lg:h-[640px] md:w-[1350px] h-[653px] 2xl:hidden">
           <div className="relative flex flex-col items-center top-60 w-1/3">
             <h1 className="intro font-medium text-slate-950 text-2xl">
               This Is Cloufee T
@@ -210,7 +210,7 @@ const Home = () => {
                   src={items.imageurl}
                 ></img>
               </Link>
-              <div className="icon-favorite absolute top-0 2xl:mt-8 2xl:ml-[390px]"></div>
+              <div className="icon-favorite absolute min-[1400px]:top-8 min-[140px]:ml-[298px] 2xl:mt-8 2xl:ml-[390px]"></div>
             </div>
           ))}
         </Slider>

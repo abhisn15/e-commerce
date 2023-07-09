@@ -32,6 +32,14 @@ const Navbar = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const hdr = gsap.timeline({ defaults: { duration: 1 } });
+    const ts = gsap.timeline({ defaults: { duration: 1 } });
+
+    ts.from(".navbar-content", { opacity: 0, x: -20 });
+    hdr.from(".judul,.left-icon-search,.left-icon-map,.left-contact,.icon-account,.icon-fav,.icon-bag", { opacity: 0, x: 0 });
+  }, []);
+
   const handleMouseEnter1 = () => {
     setIsDropdownPerhiasan(true);
   };
@@ -103,18 +111,6 @@ const Navbar = () => {
   const handleToggleHide = () => {
     setIsDropdownSearch(!isDropdownSearch);
   };
-
-  useEffect(() => {
-    const ts = gsap.timeline({ defaults: { duration: 1 } });
-
-    ts.from(".navbar-content", { opacity: 0, x: -20 });
-  }, []);
-
-  useEffect(() => {
-    const hdr = gsap.timeline({ defaults: { duration: 1 } });
-
-    hdr.from(".judul,.left-icon-search,.left-icon-map,.left-contact,.icon-account,.icon-fav,.icon-bag", { opacity: 0, x: 0 });
-  }, []);
 
   return (
     <Headroom>
@@ -345,7 +341,7 @@ const Navbar = () => {
           {isDropdownSearch && (
             <div className="absolute flex flex-col bg-white w-[4000px] left-0 top-24 z-0">
               {/* Isi dropdown di sini */}
-              <div className="flex flex-col items-end mt-10 w-[1310px]">
+              <div className="flex flex-col items-end mt-10 w-[1310px] min-[1400px]:w-[1400px]">
                 <RxCross1
                   className="cursor-pointer text-3xl"
                   onClick={handleToggleHide}
