@@ -5,7 +5,6 @@ import { useState, useEffect } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { productData, productPopular, shopCategory } from "./Data";
-import "./Home.css";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 
@@ -136,7 +135,7 @@ const Home = () => {
       },
     });
 
-    hdr.from(".intro,.p,.shop,.shop2", { opacity: 0, x: -20 });
+    hdr.from(".intro,p,.shop,.shop2", { opacity: 0, x: 0 });
 
     tl.to(".slick-slider", { y: 60, duration: 1 })
       .to(".slick-slider", { y: 30, duration: 1 })
