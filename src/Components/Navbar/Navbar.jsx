@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import Headroom from "react-headroom";
-import "./Navbar.css";
 import { RxHamburgerMenu, RxCross1 } from "react-icons/rx";
 import { Link } from "react-router-dom";
 import { gsap } from "gsap";
@@ -30,14 +29,6 @@ const Navbar = () => {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, []);
-
-  useEffect(() => {
-    const hdr = gsap.timeline({ defaults: { duration: 1 } });
-    const ts = gsap.timeline({ defaults: { duration: 1 } });
-
-    ts.from(".navbar-content", { opacity: 0, x: -20 });
-    hdr.from(".judul,.left-icon-search,.left-icon-map,.left-contact,.icon-account,.icon-fav,.icon-bag", { opacity: 0, x: 0 });
   }, []);
 
   const handleMouseEnter1 = () => {
@@ -115,7 +106,7 @@ const Navbar = () => {
   return (
     <Headroom>
       <div className="header">
-        <div className="left">
+        <div className="">
           <RxHamburgerMenu className="hamburger"></RxHamburgerMenu>
           <button className="button" onClick={handleToggle}>
             <div className="left-icon-search"></div>
@@ -140,11 +131,9 @@ const Navbar = () => {
             <span className="judul">Cloufee & Co</span>
           </Link>
         </div>
-        <div className="right flex gap-10 justify-end">
-          <div className="icon-account"></div>
-          <div className="icon-fav" />
-          <div className="icon-bag" />
-        </div>
+        <div className="icon-account mr-8" />
+        <div className="icon-fav mr-8" />
+        <div className="icon-bag" />
         <nav className="navbar">
           <div className="navbar-content">
             <div
