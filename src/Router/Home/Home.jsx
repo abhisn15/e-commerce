@@ -8,8 +8,6 @@ import { productData, productPopular, shopCategory } from "./Data";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 
-import { easeInOut } from "framer-motion";
-
 let slidesToShow = 4;
 const PreviousBtn = (props) => {
   const { className, onClick, currentSlide } = props;
@@ -25,6 +23,7 @@ const PreviousBtn = (props) => {
     </>
   );
 };
+
 const NextBtn = (props) => {
   const { className, onClick, slideCount, currentSlide } = props;
   return (
@@ -111,40 +110,83 @@ const Home = () => {
     slidesToShow = 4;
   }
 
-  useEffect(() => {
-    const hdr = gsap.timeline({ defaults: { duration: 1 } });
+  // useEffect(() => {
+  //   const hdr = gsap.timeline({ defaults: { duration: 2 } });
+  //   const ptxt = gsap.timeline({ defaults: { duration: 2 } });
+  //   const btn = gsap.timeline({ defaults: { duration: 1 } });
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".slick-slider",
-        markers: false,
-        start: "top 100%",
-        end: "top 30%",
-        scrub: 1,
-      },
-    });
+  //   const tl = gsap.timeline({
+  //     scrollTrigger: {
+  //       trigger: ".slick-slider",
+  //       markers: false,
+  //       start: "top 100%",
+  //       end: "top 30%",
+  //       scrub: 1,
+  //     },
+  //   });
 
-    const ts = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".card-popular",
-        markers: false,
-        start: "top 100%",
-        end: "top 30%",
-        scrub: 1,
-        ease: easeInOut,
-      },
-    });
+  //   const shpn = gsap.timeline({
+  //     scrollTrigger: {
+  //       trigger: ".shopn,.shopn2",
+  //       markers: false,
+  //       start: "top 80%",
+  //       end: "top 30%",
+  //       scrub: 1,
+  //       ease: easeInOut,
+  //     },
+  //   });
 
-    hdr.from(".intro,p,.shop,.shop2", { opacity: 0, x: 0 });
+  //   const ts = gsap.timeline({
+  //     scrollTrigger: {
+  //       trigger: ".card-popular",
+  //       markers: false,
+  //       start: "top 100%",
+  //       end: "top 30%",
+  //       scrub: 1,
+  //       ease: easeInOut,
+  //     },
+  //   });
 
-    tl.to(".slick-slider", { y: 60, duration: 1 })
-      .to(".slick-slider", { y: 30, duration: 1 })
-      .to(".slick-slider", { y: 0, duration: 1 });
+  //   const category = gsap.timeline({
+  //     scrollTrigger: {
+  //       trigger: ".shop-category",
+  //       markers: false,
+  //       start: "top 100%",
+  //       end: "top 30%",
+  //       scrub: 1,
+  //       ease: easeInOut,
+  //     },
+  //   });
 
-    ts.to(".card-popular", { y: 80, duration: 1 })
-      .to(".card-popular", { y: 40, duration: 1 })
-      .to(".card-popular", { y: 0, duration: 1 });
-  }, []);
+  //   const shp = gsap.timeline({
+  //     scrollTrigger: {
+  //       trigger: ".rawr",
+  //       markers: false,
+  //       start: "top 100%",
+  //       end: "top 30%",
+  //       scrub: 1,
+  //     },
+  //   });
+
+  //   hdr.from(".intro", { opacity: 0, x: -40 })
+  //   ptxt.from("p", { opacity: 0, x: 40 })
+
+  //   btn.from(".shop,.shop2", { opacity: 0 });
+
+  //   shpn.from(".shopn,.shopn2", { opacity: 0, duration: 4 })
+
+  //   tl.from(".slick-slider", { opacity: 0, y: 60, duration: 4 })
+  //     .to(".slick-slider", { y: 0, duration: 4 })
+
+  //   ts.from(".card-popular", { opacity: 0, y: 80, duration: 4 })
+  //     .to(".card-popular", { y: 0, duration: 4 })
+
+  //   shp.from(".rawr,.rawr2", { opacity: 0, duration: 2 })
+
+  //   category.from(".shop-category", { opacity: 0, y: 80, duration: 4 })
+  //     .to(".shop-category", { y: 0, duration: 4 })
+
+  // }, []);
 
   return (
     <div className="section">
@@ -231,7 +273,7 @@ const Home = () => {
         </div>
         <div className="card-popular relative flex justify-center z-0 md:gap-24">
           {productPopular.map((item) => (
-            <div className="mb-20" key={item.id}>
+            <div className="flex flex-col items-center mb-20" key={item.id}>
               <Link to="/desain-perhiasan" className="">
                 <img
                   className="md:w-[500px]"
@@ -244,9 +286,10 @@ const Home = () => {
               </span>
               <Link
                 to={item.shop}
-                className="shop-now flex justify-center ml-0 mt-2"
+                className="shop-now flex mt-2"
               >
-                <span className="text-black font-normal">{item.text}</span>
+                <span className="text-black font-normal">{item.text1}</span>
+                <span className="text-black font-normal">{item.text2}</span>
               </Link>
             </div>
           ))}
@@ -256,16 +299,16 @@ const Home = () => {
         <h1 className="rawr text-black text-center font-medium text-2xl">
           Shop by Category
         </h1>
-        <h3 className="text-black text-center mb-8">
+        <h3 className="rawr2 text-black text-center mb-8">
           Brilliant design and unparalleled craftsmanship.
         </h3>
-        <div className="shop-category relative flex gap-4 justify-center mb-20">
+        <div className="shop-category relative flex max-[420px]:grid max-[420px]:grid-cols-2 max-[420px]:mx-4 gap-4 justify-center mb-20">
           {shopCategory.map((items) => (
-            <div className="" key={items.id}>
+            <div className="flex flex-col items-center" key={items.id}>
               <Link to="/desain-perhiasan">
                 <img className="md:w-48 2xl:w-64" src={items.imageurl}></img>
               </Link>
-              <Link className="flex justify-center">
+              <Link className="">
                 <span className="category-shop">{items.text1}</span>
                 <span className="category-shop2">{items.text2}</span>
                 <span className="category-shop3">{items.text3}</span>
@@ -276,6 +319,10 @@ const Home = () => {
             </div>
           ))}
         </div>
+      </div>
+      <div className="content4">
+        <video className="video" src="https://media.tiffany.com/is/content/tiffanydm/TiffanyLandmark_6sCutdownFloral_1920x1080" type='video/mp4'
+          controls></video>
       </div>
     </div>
   );

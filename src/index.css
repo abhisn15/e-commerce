@@ -24,6 +24,7 @@ h1 {
   padding-right: 28px;
   padding-left: 28px;
   padding-top: 16px;
+  padding-bottom: 0;
   justify-content: space-between;
   background-color: var(--bg);
   height: unset !important;
@@ -225,7 +226,32 @@ button {
 a {
   z-index: 10;
   text-decoration: none;
-  color: var(--text);
+  color: #000000;
+}
+
+.perhiasan {
+  color: #00000080;
+}
+.hadiah {
+  color: #00000080;
+}
+.cinta {
+  color: #00000080;
+}
+.jam {
+  color: #00000080;
+}
+.rumah {
+  color: #00000080;
+}
+.parfum {
+  color: #00000080;
+}
+.pria {
+  color: #00000080;
+}
+.cerita {
+  color: #00000080;
 }
 
 .perhiasan:after {
@@ -467,6 +493,10 @@ a {
 
 .headroom {
   z-index: 2 !important;
+}
+
+.headroom-wrapper {
+  height: 100px !important;
 }
 
 .section {
@@ -780,6 +810,15 @@ a {
   }
 }
 
+.video::-webkit-media-controls-fullscreen-button,
+.video::-webkit-overflow-button {
+  display: none !important;
+}
+
+.video::-webkit-media-controls-enclosure {
+  overflow: hidden !important;
+}
+
 @media only screen and (min-width: 728px) {
   .slick-slide {
     padding-right: 10px;
@@ -839,11 +878,15 @@ a {
   }
 
   .shop:after {
-    left: 170px;
+    left: 165px;
+  }
+
+  .shop:hover:after {
+    width: 150px;
   }
 
   .shopn:after {
-    left: 690px;
+    left: 688px;
   }
 
   .category-shop:after {

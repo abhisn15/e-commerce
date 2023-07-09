@@ -67,14 +67,14 @@ export const productPopular = [
     imageurl: 'https://media.tiffany.com/is/image/tiffanydm/2023-Eyewear_HP-50-50-1-Desktop-1?$tile$&wid=1088&hei=1360&fmt=webp',
     title: 'Most Popular Jewelry',
     shop: '/desain-perhiasan',
-    text: 'Shop Now >',
+    text1: 'Shop Now >',
   },
   {
     id: 2,
     imageurl: 'https://media.tiffany.com/is/image/tiffanydm/HA-HP_50-50-2-Desktop?$tile$&wid=1088&hei=1360&fmt=webp',
     title: "Women's Accessories",
     shop: '/desain-perhiasan',
-    text: 'Shop Now >',
+    text2: 'Shop Now >',
   },
 ]
 

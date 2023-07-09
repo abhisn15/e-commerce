@@ -31,6 +31,14 @@ const Navbar = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const hdr = gsap.timeline({ defaults: { duration: 2 } });
+    const ts = gsap.timeline({ defaults: { duration: 2 } });
+
+    ts.from(".navbar-content", { opacity: 0 });
+    hdr.from(".judul,.left-icon-search,.left-icon-map,.left-contact,.icon-account,.icon-fav,.icon-bag", { opacity: 0 });
+  }, []);
+
   const handleMouseEnter1 = () => {
     setIsDropdownPerhiasan(true);
   };
@@ -106,7 +114,7 @@ const Navbar = () => {
   return (
     <Headroom>
       <div className="header">
-        <div className="">
+        <div className="left">
           <RxHamburgerMenu className="hamburger"></RxHamburgerMenu>
           <button className="button" onClick={handleToggle}>
             <div className="left-icon-search"></div>
@@ -131,9 +139,11 @@ const Navbar = () => {
             <span className="judul">Cloufee & Co</span>
           </Link>
         </div>
-        <div className="icon-account mr-8" />
-        <div className="icon-fav mr-8" />
-        <div className="icon-bag" />
+        <div className="right flex gap-10 justify-end">
+          <div className="icon-account"></div>
+          <div className="icon-fav" />
+          <div className="icon-bag" />
+        </div>
         <nav className="navbar">
           <div className="navbar-content">
             <div
