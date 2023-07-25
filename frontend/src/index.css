@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap");
 :root {
   --text: #6f6f6f;
@@ -911,55 +914,6 @@ a {
     background-color: white;
     background-size: cover;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  }
-
-  .perhiasan:after {
-    left: 255px;
-  }
-
-  .hadiah:after {
-    left: 360px;
-  }
-
-  .cinta:after {
-    left: 450px;
-  }
-
-  .jam:after {
-    left: 630px;
-  }
-
-  .rumah:after {
-    left: 804px;
-  }
-
-  .parfum:after {
-    left: 980px;
-  }
-
-  .pria:after {
-    left: 1070px;
-  }
-
-  .cerita:after {
-    left: 1135px;
-  }
-
-  .cerita:hover:after {
-    width: 55px;
-    left: 1135px;
-  }
-
-  .shop:after {
-    left: 165px;
-  }
-
-  .shop:hover:after {
-    width: 150px;
-  }
-
-  .shopn:after {
-    left: 688px;
   }
 
   .category-shop:after {
